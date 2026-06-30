@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "C:\Users\sg666\OneDrive\Documentos\control-equipos-sena\backend\app\routes\reportes.py", line 73, in reportes_movimientos
-    detalles = SenaService.obtener_persona_local_o_sena(db, mov.fk_persona)
-  File "C:\Users\sg666\OneDrive\Documentos\control-equipos-sena\backend\app\services\sena_service.py", line 36, in obtener_persona_local_o_sena
-    "correo": externo.correo,
-AttributeError: 'UsuarioExterno' object has no attribute 'correo'

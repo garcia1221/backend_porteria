@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
@@ -10,10 +11,12 @@ class DashboardRepository:
     def total_entradas_hoy(
         db: Session
     ):
+        hoy = datetime.now().date()
         return (
             db.query(Movimiento)
             .filter(
-                Movimiento.tipo_movimiento == "entrada"
+                Movimiento.tipo_movimiento == "entrada",
+                Movimiento.fecha_hora >= hoy
             )
             .count()
         )
@@ -22,10 +25,12 @@ class DashboardRepository:
     def total_salidas_hoy(
         db: Session
     ):
+        hoy = datetime.now().date()
         return (
             db.query(Movimiento)
             .filter(
-                Movimiento.tipo_movimiento == "salida"
+                Movimiento.tipo_movimiento == "salida",
+                Movimiento.fecha_hora >= hoy
             )
             .count()
         )
